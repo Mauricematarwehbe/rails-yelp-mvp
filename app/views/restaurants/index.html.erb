@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div class="container" style="width= 100%;">
+    <h1>Our restaurants</h1>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <% @restaurants.each do |restaurant| %>
+          <div class="col-md-4">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(https://static.pexels.com/photos/5317/food-salad-restaurant-person.jpg); background-size: cover;">
+              <div class="card-category"><p><%= restaurant.category %></p></div>
+              <div class="card-description">
+                <h2><%= restaurant.name %></h2>
+                <p><%= restaurant.address %></p>
+                <%= link_to 'Show', restaurant_path(restaurant) %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <%= link_to "Create new restaurant", new_restaurant_path %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
